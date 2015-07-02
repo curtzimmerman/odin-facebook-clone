@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   root 'static_pages#home'
   resources :users, only: :show
   resources :friendships, only: [:create, :destroy]
+  resources :friend_requests, only: [:create]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
