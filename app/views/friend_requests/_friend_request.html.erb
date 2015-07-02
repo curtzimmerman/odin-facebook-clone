@@ -1,0 +1,6 @@
+<li>
+	<%= link_to "Accept", friendships_path(friendship: { friend_request_id: friend_request.id }), method: :post %> |
+	<%= friend_request.sender.name %> | 
+	<%= friend_request.sender.email %> | 
+	<%= friend_request.sender.created_at %>
+</li>

@@ -1,6 +1,19 @@
 <%= provide(:title, @user.name) %>
 
 <h1><%= @user.name %>'s Profile</h1>
+
+<% if @user == current_user %>
+	<section class="dashboard">
+		<% if @user.pending_friend_requests.any? %>
+			<h3>Pending Friend Requests: <%= @friend_requests.count %></h3>
+				<ul class="friend_requests">
+					<%= render @friend_requests %>
+				</ul>
+		<% end %>
+	</section>
+<% end %>
+
+
 <% unless current_user.friends.include?(@user) || @user == current_user || friend_request_already_sent?(current_user.id, @user.id) %>
 	<%= link_to "add friend", friend_requests_path(friend_request: { sender_id: current_user.id, recipient_id: @user.id }), method: :post %>
 <% end %>

@@ -4,6 +4,11 @@
 	<%= current_user.email %>
 	<%= link_to "Profile", user_path(current_user) %>
 	<%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+	<section class="notifications">
+		<% if current_user.pending_friend_requests.any? %>
+			<%= link_to "You have pending friend requests", current_user %>
+		<% end %>
+	</section>
 <% else %>
 	<%= link_to "Sign up", new_user_registration_path %>
 	<%= link_to "Sign in", new_user_session_path %>
