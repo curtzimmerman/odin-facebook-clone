@@ -5,6 +5,7 @@ class FriendshipsController < ApplicationController
 		@friendship = friend_request.create_friendship(user_id: friend_request.sender_id, friend_id: friend_request.recipient_id)
 		if @friendship.save
 			friend_request.accept
+			@friendship.add_inverse_friendship
 			flash[:success] = "Added Friend"
 			redirect_to @friendship.friend
 		else
