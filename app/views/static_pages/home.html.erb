@@ -1,1 +1,8 @@
-<h1>Odin Facebook Clone</h1>
+<% if user_signed_in? %>
+	<section class="post">
+		<%= render 'posts/post_form' %>
+	</section>
+	<h1>News Feed</h1>	
+<% else %>
+	<h1>Odin Facebook Clone</h1>
+<% end %>

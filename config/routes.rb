@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'static_pages#home'
   resources :users, only: :show
+  resources :posts, only: [:create, :destroy, :index]
   resources :friendships, only: [:create, :destroy]
   resources :friend_requests, only: [:create]
 
