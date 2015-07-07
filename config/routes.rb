@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   root 'static_pages#home'
   resources :users, only: :show
   resources :posts, only: [:create, :destroy, :index]
+  resources :likes, only: [:create, :destroy]
   resources :friendships, only: [:create, :destroy]
   resources :friend_requests, only: [:create]
 

@@ -9,7 +9,7 @@ class AddFriendTest < ActionDispatch::IntegrationTest
   test "should add friend correctly" do
   	get new_user_session_path
   	post user_session_path, user: { email: @user.email, password: 'foobar23' }
-  	assert_redirected_to @user
+    assert_redirected_to root_path
   	get user_path(@friend.id)
   	assert_template 'users/show'
     assert_difference('FriendRequest.count') do
@@ -18,8 +18,8 @@ class AddFriendTest < ActionDispatch::IntegrationTest
     delete destroy_user_session_path
     assert_redirected_to new_user_session_path
     post user_session_path, user: { email: @friend.email, password: 'foobar23' }
-    assert_redirected_to @friend
-    follow_redirect!
+    assert_redirected_to root_path
+    get user_path(@friend.id)
     assert_match @user.name && @user.email, response.body
     assert_difference(['@user.friends.count', '@friend.friends.count']) do
       post friendships_path, friendship: { friend_request_id: @user.sent_friend_requests.last.id }

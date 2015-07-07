@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   #change routing behavior after logging in with devise
   def after_sign_in_path_for(resource)
   	if resource.is_a?(User)
-  		user_path(resource.id)
+  		root_path
   	else
   		super
   	end

@@ -11,9 +11,14 @@ class User < ActiveRecord::Base
   has_many :sent_friend_requests, class_name: "FriendRequest", foreign_key: "sender_id"
 
   has_many :posts
+  has_many :likes
 
   def pending_friend_requests
     self.recieved_friend_requests.where(accepted: false)
+  end
+
+  def feed
+    Post.where("user_id IN (?)", self.friends.ids << self.id).order(created_at: :desc)
   end
 	
 end

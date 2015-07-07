@@ -1,0 +1,10 @@
+<li>
+	<%= post.body %> | 
+	<%= link_to post.user.name, user_path(post.user.id) %> | 
+	<%= post.created_at %> | 
+	<% if post.users_that_like.include?(current_user) %>
+		<%= link_to "Unlike", like_path(id: Like.find_by(user_id: current_user.id, post_id: post.id)), method: :delete %>
+	<% else %>
+		<%= link_to "Like", likes_path(likes: { post_id: post.id, user_id: current_user.id }), method: :post %>
+	<% end %>
+</li>

@@ -19,7 +19,7 @@ class UserLoginTest < ActionDispatch::IntegrationTest
   	get new_user_session_path
   	assert_template 'devise/sessions/new'
   	post user_session_path, user: { email: @user.email, password: 'foobar23' }
-  	assert_redirected_to @user
+  	assert_redirected_to root_path
   	delete destroy_user_session_path
   	assert_redirected_to new_user_session_path
   end
