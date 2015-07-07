@@ -1,0 +1,6 @@
+<%= form_tag '/comments' do %>
+	<%= text_field_tag "comment[body]", nil, placeholder: "Add comment" %>
+	<%= hidden_field_tag 'comment[user_id]', current_user.id %>
+	<%= hidden_field_tag 'comment[post_id]', post[:id] %>
+	<%= submit_tag "Submit" %>
+<% end %>

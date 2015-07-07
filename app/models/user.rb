@@ -12,7 +12,8 @@ class User < ActiveRecord::Base
 
   has_many :posts
   has_many :likes
-
+  has_many :comments
+  
   def pending_friend_requests
     self.recieved_friend_requests.where(accepted: false)
   end

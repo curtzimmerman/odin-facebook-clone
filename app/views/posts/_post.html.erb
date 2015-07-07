@@ -7,4 +7,13 @@
 	<% else %>
 		<%= link_to "Like", likes_path(likes: { post_id: post.id, user_id: current_user.id }), method: :post %>
 	<% end %>
+	<ul>
+		<% if post.likes.any? %>
+			Liked by: <%= post.names_of_likers %>
+		<% end %>
+		<% if post.comments.any? %>
+			<%= render post.comments %>
+		<% end %>
+		<li><%= render 'comments/comment_form', post: { id: post.id } %></li>
+	</ul>
 </li>
