@@ -14,6 +14,7 @@ gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'figaro'
+gem 'letter_opener', :group => :development
 
 group :development, :test do
   gem 'byebug'
