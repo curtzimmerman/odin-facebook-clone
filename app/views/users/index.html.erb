@@ -9,7 +9,7 @@
 <% @users.each do |user| %>
 	<tr>
 		<td><%= image_tag avatar_for(user) %></td>
-		<td><%= user.name %></td>
+		<td><%= link_to user.name, user_path(user.id) %></td>
 		<td><%= user.email %></td>
 		<%= render partial: 'shared/add_friend_partial.html.erb', locals: { user: user } %>
 	</tr>
