@@ -8,4 +8,8 @@ module ApplicationHelper
 			base
 		end
 	end
+
+	def avatar_for(user)
+		"http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(user.email)}?s=96"
+	end
 end
