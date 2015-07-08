@@ -10,6 +10,6 @@ module ApplicationHelper
 	end
 
 	def avatar_for(user)
-		"http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(user.email)}?s=96"
+		"http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(user.email)}?s=48"
 	end
 end

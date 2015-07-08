@@ -10,5 +10,9 @@ class UsersController < ApplicationController
 		@friend_requests = @user.pending_friend_requests
 	end
 
+	def index
+		@users = User.all.order(name: :asc)
+	end
+
 
 end
