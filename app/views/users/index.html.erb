@@ -8,7 +8,7 @@
 	</tr>
 <% @users.each do |user| %>
 	<tr>
-		<td><%= image_tag avatar_for(user) %></td>
+		<td><%= user.image_url.nil? ? image_tag(avatar_for(user)) : image_tag(user.image_url)%></td>
 		<td><%= link_to user.name, user_path(user.id) %></td>
 		<td><%= user.email %></td>
 		<%= render partial: 'shared/add_friend_partial.html.erb', locals: { user: user } %>

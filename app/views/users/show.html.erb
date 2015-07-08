@@ -3,7 +3,7 @@
 <section class="info">
 	<table>
 		<tr>
-			<td><%= image_tag avatar_for(@user) %></td>
+			<td><%= @user.image_url.nil? ? image_tag(avatar_for(@user)) : image_tag(@user.image_url) %></td>
 			<td><h1><%= @user.name %>'s Profile</h1></td>
 		</tr>
 	</table>
