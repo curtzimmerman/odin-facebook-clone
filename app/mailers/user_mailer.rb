@@ -3,7 +3,11 @@ class UserMailer < ApplicationMailer
 
 	def welcome_email(user)
 		@user = user
-		@url = "http://localhost:3000/users/sign_in"
+		if Rails.env.production?
+			@url = "http://aqueous-ravine-6303.herokuapp.com/users/sign_in"
+		else
+			@url = "http://localhost:3000/users/sign_in"
+		end
 		mail(to: @user.email, subject: "Welcome to Odin Facebook Clone")
 	end
 
