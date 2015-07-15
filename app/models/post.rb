@@ -1,15 +1,10 @@
 class Post < ActiveRecord::Base
-
-	attr_accessor :picture_cache
-	
 	belongs_to :user
 
 	has_many :likes
 	has_many :comments
 
 	validates :body, length: { minimum: 1 }
-
-	mount_uploader :picture, PictureUploader
 
 	def users_that_like
 		users = []
