@@ -15,6 +15,8 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'figaro'
 gem 'letter_opener', :group => :development
+gem 'carrierwave'
+gem 'rmagick'
 
 group :development, :test do
   gem 'byebug'

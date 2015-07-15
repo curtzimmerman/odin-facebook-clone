@@ -1,4 +1,10 @@
-<%= form_for @post do |f| %><br />
+<%= form_for @post, html: { multipart: true } do |f| %><br />
 	<%= f.text_area :body, placeholder: "Have something to say?" %><br />
+
+	<%= image_tag(@post.picture_url.to_s) if @post.picture? %>
+	<%= f.label :picture, "Upload a picture: " %>
+	<%= f.file_field :picture %>
+	<%= f.hidden_field :picture_cache %>
+
 	<%= f.submit "Post" %>
 <% end %>
