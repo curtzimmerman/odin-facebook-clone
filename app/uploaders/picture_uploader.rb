@@ -17,7 +17,7 @@ class PictureUploader < CarrierWave::Uploader::Base
   end
 
   def cache_dir
-    "#{Rails.root}/public/uploads/cache"
+    "#{Rails.root}/tmp/uploads/"
   end
 
   def extension_white_list
