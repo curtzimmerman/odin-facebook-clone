@@ -1,16 +1,27 @@
-<%= link_to "Home", root_path %>
-<% if user_signed_in? %>
-	<%= current_user.name %> | 
-	<%= current_user.email %>
-	<%= link_to "Users", users_path %>
-	<%= link_to "Profile", user_path(current_user) %>
-	<%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-	<section class="notifications">
-		<% if current_user.pending_friend_requests.any? %>
-			<%= link_to "You have pending friend requests", current_user %>
-		<% end %>
-	</section>
-<% else %>
-	<%= link_to "Sign up", new_user_registration_path %>
-	<%= link_to "Sign in", new_user_session_path %>
-<% end %>
+<nav class="navbar navbar-default">
+	<div class="container-fluid">
+		<div class="navbar-header">
+		</div>
+		<div class="navbar-collapse collapse">
+			<ul class="nav navbar-nav navbar-right">
+				<% if user_signed_in? %>
+					<li><%= link_to "Home: #{current_user.name} - #{current_user.email}", root_path %></li>
+					<li><%= link_to "Users", users_path %></li>
+					<li><%= link_to "Profile", user_path(current_user) %></li>
+					<li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+					</ul>
+					<div class="notifications">
+						<% if current_user.pending_friend_requests.any? %>
+							<%= link_to "You have pending friend requests", current_user %>
+						<% end %>
+					</div>
+				<% else %>
+					<li><%= link_to "Home", root_path %></li>
+					<li><%= link_to "Sign up", new_user_registration_path %></li>
+					<li><%= link_to "Sign in", new_user_session_path %></li>
+					</ul>
+				<% end %>
+		</div>
+	</div>
+</nav>
+
