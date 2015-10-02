@@ -1,12 +1,15 @@
-<% if user_signed_in? %>
-	<section class="post">
-		<%= render 'posts/post_form' %>
-	</section>
-	<h1>News Feed</h1>	
-	<section class="feed">
-		<ul>
-			<%= render @feed %>
-		</ul>
-<% else %>
-	<h1>Odin Facebook Clone</h1>
-<% end %>
+<div class="container">
+	<% if user_signed_in? %>
+		<div class="post">
+			<%= render 'posts/post_form' %>
+		</div>
+		<h1>News Feed</h1>	
+		<div class="feed">
+			<ul>
+				<%= render @feed %>
+			</ul>
+		</div>
+	<% else %>
+		<h1>Odin Facebook Clone</h1>
+	<% end %>
+</div>
