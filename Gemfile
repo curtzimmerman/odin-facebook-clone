@@ -15,6 +15,7 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'figaro'
 gem 'letter_opener', :group => :development
+gem 'bootstrap-sass'
 
 group :development, :test do
   gem 'byebug'

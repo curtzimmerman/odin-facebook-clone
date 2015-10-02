@@ -1,0 +1,6 @@
+development:
+  adapter: postgresql
+  host: localhost
+  username: odin_facebook
+  password: odin
+  database: odin_facebook_development
