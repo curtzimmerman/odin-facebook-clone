@@ -1,32 +1,28 @@
 <%= provide(:title, @user.name) %>
+<div class="container">
+	<div class="info">
+		<h1><%= @user.image_url.nil? ? image_tag(avatar_for(@user)) : image_tag(@user.image_url) %>
+		<%= @user.name %>'s Profile</h1>
+	</div>
 
-<section class="info">
-	<table>
-		<tr>
-			<td><%= @user.image_url.nil? ? image_tag(avatar_for(@user)) : image_tag(@user.image_url) %></td>
-			<td><h1><%= @user.name %>'s Profile</h1></td>
-		</tr>
-	</table>
-</section>
-
-<% if @user == current_user %>
-	<section class="dashboard">
-		<% if @user.pending_friend_requests.any? %>
-			<h3>Pending Friend Requests: <%= @friend_requests.count %></h3>
-				<ul class="friend_requests">
-					<%= render @friend_requests %>
-				</ul>
-		<% end %>
-	</section>
-<% end %>
-
-
-<%= render partial: 'shared/add_friend_partial', locals: { user: @user } %>
-
-<section class="posts">
-	<% @user.posts.each do |post| %>
-		<%= render post %>
+	<% if @user == current_user %>
+		<div class="dashboard">
+			<% if @user.pending_friend_requests.any? %>
+				<h3>Pending Friend Requests: <%= @friend_requests.count %></h3>
+					<ul class="friend_requests">
+						<%= render @friend_requests %>
+					</ul>
+			<% end %>
+		</div>
 	<% end %>
-</section>
 
+
+	<%= render partial: 'shared/add_friend_partial', locals: { user: @user } %>
+
+	<div class="posts">
+		<% @user.posts.each do |post| %>
+			<%= render post %>
+		<% end %>
+	</div>
+</div>
 

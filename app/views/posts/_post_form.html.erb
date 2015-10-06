@@ -1,4 +1,8 @@
-<%= form_for @post do |f| %><br />
-	<%= f.text_area :body, placeholder: "Have something to say?" %><br />
-	<%= f.submit "Post" %>
+<%= form_for @post, html: { class: "form-inline row"} do |f| %>
+	<div class="form-group col-xs-10">
+		<%= f.text_area :body, class: "form-control", placeholder: "Add post here" %>
+	</div>
+	<div class="form-group col-xs-2">
+		<%= f.submit "Post", class: "btn btn-default", id: "post-submit" %>
+	</div>
 <% end %>

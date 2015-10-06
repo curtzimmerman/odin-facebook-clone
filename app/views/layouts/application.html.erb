@@ -8,11 +8,13 @@
 </head>
 <body>
 	<%= render 'layouts/header' %>
-	<div class="error">
-		<% flash.each do |type, message| %>
-			<% content_tag(:div, class: type) %>
-			<%= message %>
-		<% end %>
+	<div class="container-fluid">
+		<div class="flash">
+			<% flash.each do |type, message| %>
+				<% content_tag(:div, class: type) %>
+				<%= message %>
+			<% end %>
+		</div>
 	</div>
 
 	<%= yield %>
