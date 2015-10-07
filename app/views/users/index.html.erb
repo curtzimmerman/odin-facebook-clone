@@ -1,16 +1,18 @@
-<h1>All Users</h1>
+<div class="container">
+	<h1>All Users</h1>
 
-<table>
-	<tr>
-		<th></th>
-		<th>Name</th>
-		<th>Email</th>
-	</tr>
-<% @users.each do |user| %>
-	<tr>
-		<td><%= user.image_url.nil? ? image_tag(avatar_for(user)) : image_tag(user.image_url)%></td>
-		<td><%= link_to user.name, user_path(user.id) %></td>
-		<td><%= user.email %></td>
-		<%= render partial: 'shared/add_friend_partial.html.erb', locals: { user: user } %>
-	</tr>
-<% end %>
+	<table>
+		<tr>
+			<th></th>
+			<th>Name</th>
+			<th>Email</th>
+		</tr>
+	<% @users.each do |user| %>
+		<tr>
+			<td><%= user.image_url.nil? ? image_tag(avatar_for(user)) : image_tag(user.image_url)%></td>
+			<td><%= link_to user.name, user_path(user.id) %></td>
+			<td><%= user.email %></td>
+			<%= render partial: 'shared/add_friend_partial.html.erb', locals: { user: user } %>
+		</tr>
+	<% end %>
+</table>

@@ -1,4 +1,4 @@
-<div class="post row">
+<div class="post row col-xs-8">
 	<div class="col-xs-2 avatar">
 			<%= post.user.image_url.nil? ? image_tag(avatar_for(post.user), class: "img-responsive avatar") : image_tag(avatar_for(post.user.image_url), class: "img-responsive avatar") %>
 	</div>

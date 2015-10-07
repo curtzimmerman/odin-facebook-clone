@@ -1,15 +1,13 @@
 <div class="container">
-	<div class="col-md-10 col-md-offset-1">
-		<% if user_signed_in? %>
-			<div class="post-form">
-				<%= render 'posts/post_form' %>
-			</div>
-			<h1>News Feed</h1>	
-			<div class="feed">
-				<%= render @feed %>
-			</div>
-		<% else %>
-			<h1>Odin Facebook Clone</h1>
-		<% end %>
-	</div>
+	<% if user_signed_in? %>
+		<div class="post-form">
+			<%= render 'posts/post_form' %>
+		</div>
+		<h1>News Feed</h1>	
+		<div class="feed">
+			<%= render @feed %>
+		</div>
+	<% else %>
+		<h1>Odin Facebook Clone</h1>
+	<% end %>
 </div>
